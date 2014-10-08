@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+from scipy.io import netcdf
+import sys
+
+if len(sys.argv) != 2:
+    print "netcdf file should be only argument"
+    sys.exit(1)
+netcdf_path = sys.argv[1]
+
+f = netcdf.netcdf_file(netcdf_path, 'r')
+vars = [(v) for v in f.variables]
+vars.sort()
+for var in vars:
+    print var
